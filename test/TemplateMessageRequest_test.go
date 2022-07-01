@@ -16,7 +16,6 @@ import (
 
 func TestTemplateMessageRequest(t *testing.T) {
 	toPhoneNumber := "905325401194"
-
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -25,8 +24,15 @@ func TestTemplateMessageRequest(t *testing.T) {
 	templateMessageRequest.Source = os.Getenv("WaSourcePhoneNumber")
 	templateMessageRequest.Destination = toPhoneNumber
 	templateMessageRequest.Template = &gupshub.TemplateData{
-		ID:     "b2aee92d-bf3a-461a-b389-28098feb8fb7",
-		Params: []string{"Ibrahim", "2234"},
+		ID:     "69b83f67-0372-4a5e-b748-0ecded143304",
+		Params: []string{"https://download.icibot.app"},
+	}
+	templateMessageRequest.Message = &gupshub.TemplateMessage{
+		Type: "location",
+		Location: &gupshub.LocationPoint{
+			Latitude:  "41.0687831",
+			Longitude: "29.0110758",
+		},
 	}
 	templateMessageRequest.Send()
 }

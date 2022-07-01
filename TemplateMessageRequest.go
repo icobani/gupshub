@@ -61,7 +61,7 @@ type LocationPoint struct {
 }
 
 func (tmr TemplateMessageRequest) Send() {
-	form := tmr.ConvertToMapStringString()
+	form := tmr.convertToMapStringString()
 	fmt.Println(form)
 	RClient.SetDebug(true)
 	RClient.SetContentLength(true)
@@ -78,7 +78,7 @@ func (tmr TemplateMessageRequest) Send() {
 	}
 }
 
-func (tmr TemplateMessageRequest) ConvertToMapStringString() map[string]string {
+func (tmr TemplateMessageRequest) convertToMapStringString() map[string]string {
 	form := map[string]string{}
 
 	form["source"] = tmr.Source

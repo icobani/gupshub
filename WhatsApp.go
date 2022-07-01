@@ -22,6 +22,19 @@ var (
 		SetContentLength(true)
 )
 
+const (
+	MessageTypeText                     string = "text"
+	MessageTypeAudio                           = "audio"
+	MessageTypeVideo                           = "video"
+	MessageTypeFile                            = "file"
+	MessageTypeSticker                         = "sticker"
+	MessageTypeLocation                        = "location"
+	MessageTypeImage                           = "image"
+	MessageTypeContact                         = "contact"
+	MessageInteractiveListMessage              = "list"
+	MessageInteractiveQuickReplyMessage        = "quick_reply"
+)
+
 type WhatsApp struct {
 	AppName string `json:"app_name"`
 	ApiKey  string `json:"api_key"`
@@ -31,4 +44,13 @@ func (wa *WhatsApp) NewTemplateMessageRequest() TemplateMessageRequest {
 	return TemplateMessageRequest{
 		wa: wa,
 	}
+}
+
+func (wa *WhatsApp) NewSessionMessageRequest() SessionMessageRequest {
+	return SessionMessageRequest{
+		wa:         wa,
+		SourceName: wa.AppName,
+		Channel:    "whatsapp",
+	}
+
 }
