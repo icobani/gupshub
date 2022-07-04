@@ -15,8 +15,9 @@ import (
 	"testing"
 )
 
+var toPhoneNumber = "905427662390"
+
 func TestSessionMessageRequestTextMessage(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -25,13 +26,12 @@ func TestSessionMessageRequestTextMessage(t *testing.T) {
 	smr.Destination = toPhoneNumber
 	smr.Message = &gupshub.SessionMessageData{
 		Type: gupshub.MessageTypeText,
-		Text: fmt.Sprintf("Merhaba %s, talebinizi aldık.", "Ibrahim"),
+		Text: fmt.Sprintf("Merhaba %s, talebinizi aldık.", "Ali Sinan"),
 	}
 	smr.Send()
 }
 
 func TestSessionMessageRequestAudio(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -46,7 +46,6 @@ func TestSessionMessageRequestAudio(t *testing.T) {
 }
 
 func TestSessionMessageRequestVideo(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -61,7 +60,6 @@ func TestSessionMessageRequestVideo(t *testing.T) {
 }
 
 func TestSessionMessageRequestFile(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -77,7 +75,6 @@ func TestSessionMessageRequestFile(t *testing.T) {
 }
 
 func TestSessionMessageRequestSticker(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -92,7 +89,6 @@ func TestSessionMessageRequestSticker(t *testing.T) {
 }
 
 func TestSessionMessageRequestLocation(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -110,7 +106,6 @@ func TestSessionMessageRequestLocation(t *testing.T) {
 }
 
 func TestSessionMessageRequestImage(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -127,7 +122,6 @@ func TestSessionMessageRequestImage(t *testing.T) {
 }
 
 func TestSessionMessageRequestContact(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -159,7 +153,6 @@ func TestSessionMessageRequestContact(t *testing.T) {
 }
 
 func TestSessionMessageRequestInteractiveListMessage(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -209,7 +202,6 @@ func TestSessionMessageRequestInteractiveListMessage(t *testing.T) {
 }
 
 func TestSessionMessageRequestQuickReplyText(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -247,7 +239,6 @@ func TestSessionMessageRequestQuickReplyText(t *testing.T) {
 }
 
 func TestSessionMessageRequestQuickReplyImage(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -285,7 +276,6 @@ func TestSessionMessageRequestQuickReplyImage(t *testing.T) {
 }
 
 func TestSessionMessageRequestQuickReplyVideo(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
@@ -323,7 +313,6 @@ func TestSessionMessageRequestQuickReplyVideo(t *testing.T) {
 }
 
 func TestSessionMessageRequestQuickReplyFile(t *testing.T) {
-	toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
