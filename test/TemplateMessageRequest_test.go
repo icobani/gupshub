@@ -15,9 +15,9 @@ import (
 )
 
 func TestTemplateMessageRequest(t *testing.T) {
-	toPhoneNumber := "905427662390"
+	toPhoneNumber := "cc90532540119433333333"
 	var wa gupshub.WhatsApp
-	wa.AppName = os.Getenv("WAAppName")
+	wa.AppName = "swsw" + os.Getenv("WAAppName")
 	wa.ApiKey = os.Getenv("WAApiKey")
 	_ = wa.OptIn(toPhoneNumber)
 	templateMessageRequest := wa.NewTemplateMessageRequest()

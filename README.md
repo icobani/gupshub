@@ -12,8 +12,8 @@
 		fmt.Printf("Err : %+v\n", err.Error())
 	}
 
-
 # Template List
+
     var wa gupshub.WhatsApp
     wa.AppName = os.Getenv("WAAppName")
     wa.ApiKey = os.Getenv("WAApiKey")
@@ -24,6 +24,7 @@
     }
 
 # Contact List
+
     var wa gupshub.WhatsApp
     wa.AppName = os.Getenv("WAAppName")
     wa.ApiKey = os.Getenv("WAApiKey")
@@ -34,6 +35,7 @@
     }
 
 # Contact Opt-In
+
     toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
@@ -43,6 +45,7 @@
 	}
 
 # Contact Opt-Out
+
     toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")
@@ -52,6 +55,7 @@
 	}
 
 # Send Template Message
+
     toPhoneNumber := "905325401194"
 	var wa gupshub.WhatsApp
 	wa.AppName = os.Getenv("WAAppName")

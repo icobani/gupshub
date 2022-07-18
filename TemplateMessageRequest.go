@@ -60,21 +60,31 @@ type LocationPoint struct {
 	Latitude  string `json:"latitude,omitempty"`
 }
 
-func (tmr TemplateMessageRequest) Send() {
+type TemplateMessageResponse struct {
+	MessageId string `json:"messageId"`
+	Status    string `json:"status"`
+}
+
+func (tmr TemplateMessageRequest) Send() (TemplateMessageResponse, error) {
 	form := tmr.convertToMapStringString()
 	fmt.Println(form)
 	RClient.SetDebug(true)
 	RClient.SetContentLength(true)
 
+	var result TemplateMessageResponse
+
 	if res, err := RClient.R().
 		SetHeader("apikey", tmr.wa.ApiKey).
 		SetHeader("Cache-Control", "no-cache").
+		SetResult(result).
 		SetFormData(form).
 		Post("http://api.gupshup.io/sm/api/v1/template/msg"); err == nil {
 		fmt.Println("ok", res.StatusCode(), res.Status(), res.String())
 		fmt.Println(res.Request.FormData)
+		return result, nil
 	} else {
 		fmt.Println("err : ", err)
+		return result, err
 	}
 }
 

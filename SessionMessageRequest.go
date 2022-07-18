@@ -141,20 +141,24 @@ func (smd SessionMessageData) ToString() string {
 	}
 }
 
-func (s *SessionMessageRequest) Send() {
+func (s *SessionMessageRequest) Send() (TemplateMessageResponse, error) {
 	fmt.Println(s.ToString())
 	RClient.SetDebug(true)
 	RClient.SetContentLength(true)
 
+	var result TemplateMessageResponse
 	if res, err := RClient.R().
 		SetHeader("apikey", s.wa.ApiKey).
 		SetHeader("Cache-Control", "no-cache").
+		SetResult(result).
 		SetFormData(s.convertToMapStringString()).
 		Post("https://api.gupshup.io/sm/api/v1/msg"); err == nil {
 		fmt.Println("ok", res.StatusCode(), res.Status(), res.String())
 		fmt.Println(res.Request.FormData)
+		return result, nil
 	} else {
 		fmt.Println("err : ", err)
+		return result, err
 	}
 }
 
